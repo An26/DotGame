@@ -10,16 +10,17 @@
 </head>
 <body>
   <div class="game_interface" data-pane-type="intro">
-    <h1 class="title">Welcome!</h1>
+    <h3>Welcome to</h3>
+    <h1 class="title">Dots Galore</h1>
     <p class="subtext"></p>
-    <div class="slider_box"></div>
-    <button class="action"></button>
     <div class="slider">
+      <h4>Choose your dot-ficulty: </h4>
+        <span class="range-slider value"><span class="level">Tick-tock, Tick-Dot</span></span>
       <input class="range-slider range" type="range" value="3" min="1" max="5" onchange="rangeSlider(event)">
-      <span class="range-slider value"><span class="level">"Tick-tok, Tick-dot"</span></span>
     </div>
+    <button class="start-game"><h2>Start!</h2></button>
   </div>
-  <div class="game_interface" data-pane-type="pause">
+  <!-- <div class="game_interface" data-pane-type="pause">
     <h1 class="title"></h1>
     <p class="subtext"></p>
     <div class="slider_box"></div>
@@ -30,7 +31,7 @@
     <p class="subtext"></p>
     <div class="slider_box"></div>
     <button class="action"></button>
-  </div>
+  </div> -->
   <div class="game_play">
     <div class="begin-box">
       <div class="dot" id="dot_original" data-value="10" onclick="catchDot(event)"></div>

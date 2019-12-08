@@ -43,13 +43,27 @@ table {
 
 body {
   background: url(images/background.png);
-  /* overflow: no-scroll;
+  overflow: no-scroll;
   overflow-y: hidden;
-  overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Fredoka One', cursive;
+  margin-top: 1rem;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+h4{
+  font-size: 1.1rem;
 }
 
 p, div, button, ul, ol, li {
@@ -57,16 +71,34 @@ p, div, button, ul, ol, li {
 }
 
 .game_play {
-  width   : 100vw;
-  height  : 100vh;
-  /* display: none; */
+  width : calc(100vw - 2rem);
+  height : calc(100vh - 2rem);
+  padding: 1rem;
+}
+
+button.start-game {
+  padding: 1rem;
+  text-align: center;
+  display: block;
+  width: 15%;
+  margin: 10% 42.5%;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  background: white;
+}
+
+button.start-game h2 {
+  margin-top: 0;
 }
 
 .game_interface {
-  width   : 100vw;
-  height  : 100vh;
+  width   : calc(100vw - 2rem);
+  height  : calc(100vh - 2rem);
   position: absolute;
-  top: 0
+  top: 0;
+  transition: all .5s ease-out;
+  z-index: 1000;
 }
 
 .game_interface .title {
@@ -75,8 +107,9 @@ p, div, button, ul, ol, li {
 }
 
 .game_interface[data-pane-type="intro"] {
-  background: #ffe34fce;
-  display: none;
+  background: #aee9d9ce;
+  padding: 1rem;
+  /* display: none; */
 }
 
 .game_interface[data-pane-type="pause"] {
@@ -87,6 +120,10 @@ p, div, button, ul, ol, li {
 .game_interface[data-pane-type="exit"] {
   background: #0cb586ce;
   display: none;
+}
+
+.slideUpAway {
+  top: -100vh;
 }
 
 .begin-box {
@@ -178,87 +215,47 @@ footer {
 
 .range-slider.range {
   -webkit-appearance: none;
-  width             : calc(100% - (73px));
-  height            : 10px;
-  border-radius     : 5px;
-  background        : #d7dcdf;
+  width             : 80%;
+  height            : 25px;
+  border-radius     : 20px;
+  background        : white;
   outline           : none;
   padding           : 0;
-  margin            : 0;
+  margin            : 0 10%;
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .range-slider.range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance        : none;
-  width             : 20px;
-  height            : 20px;
+  width             : 40px;
+  height            : 40px;
   border-radius     : 50%;
-  background        : #2c3e50;
+  background        : #00956d;
   cursor            : pointer;
   transition        : background .15s ease-in-out;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 0 0 3px #fff,
+0 0 0 6px #1abc9c;
 }
 
 .range-slider.range::-webkit-slider-thumb:hover {
   background: #1abc9c;
+  box-shadow: 0 0 0 3px #fff,
+0 0 0 6px #1abc9c;
 }
 
 .range-slider.range:active::-webkit-slider-thumb {
   background: #1abc9c;
-}
-
-.range-slider.range::-moz-range-thumb {
-  width        : 20px;
-  height       : 20px;
-  border       : 0;
-  border-radius: 50%;
-  background   : #2c3e50;
-  cursor       : pointer;
-  transition   : background .15s ease-in-out;
-}
-
-.range-slider.range::-moz-range-thumb:hover {
-  background: #1abc9c;
-}
-
-.range-slider.range:active::-moz-range-thumb {
-  background: #1abc9c;
-}
-
-.range-slider.range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
+  box-shadow: 0 0 0 3px #fff,
+0 0 0 6px #1abc9c;
 }
 
 .range-slider.value {
-  display      : inline-block;
-  position     : relative;
-  width        : 60px;
-  color        : #fff;
-  line-height  : 20px;
-  text-align   : center;
-  border-radius: 3px;
-  background   : #2c3e50;
-  padding      : 5px 10px;
-  margin-left  : 8px;
-}
-
-.range-slider.value:after {
-  position     : absolute;
-  top          : 8px;
-  left         : -7px;
-  width        : 0;
-  height       : 0;
-  border-top   : 7px solid transparent;
-  border-right : 7px solid #2c3e50;
-  border-bottom: 7px solid transparent;
-  content      : '';
-}
-
-::-moz-range-track {
-  background: #d7dcdf;
-  border    : 0;
-}
-
-input::-moz-focus-inner,
-input::-moz-focus-outer {
-  border: 0;
+  font-family: 'Fredoka One',  cursive;
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

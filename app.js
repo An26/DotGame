@@ -67,21 +67,21 @@ function rangeSlider(e) {
   // console.log(range);
   switch(range){
     case 5:
-      level.innerHTML = "Epi-DOT-ic";
+      level.innerHTML = "Pan-DOT-monium!!!";
       delay = 100;
       currentDots.forEach(dot => {
         dot.style.animationDuration = '0.5s';
       });
       break;
     case 4:
-      level.innerHTML = "School of Dot";
+      level.innerHTML = "Attending School of Dot";
       delay = 300;
       currentDots.forEach(dot => {
         dot.style.animationDuration = '1s';
       });
       break;
     case 3:
-      level.innerHTML = "Tick-tok, Tick-dot";
+      level.innerHTML = "Tick-tock, Tick-Dot";
       delay = 1000;
       break;
     case 2:
@@ -101,19 +101,30 @@ function rangeSlider(e) {
   }
 };
 
+// function startandResumeGame() {
+//   playing = true;
+//   let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
+//   currentDots.forEach(dot => {
+//     dot.style.animationPlayState = "running";
+//   });
+//   addDot();
+// }
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  document.querySelector("#start").onclick = function () {
-      playing = true;
-      let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
-      currentDots.forEach(dot => {
-        dot.style.animationPlayState = "running";
-      });
-      addDot();
+  document.querySelector(".start-game").onclick = function () {
+    document.querySelector('.game_interface').classList.add('slideUpAway');
+    playing = true;
+    let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
+    currentDots.forEach(dot => {
+      dot.style.animationPlayState = "running";
+    });
+    addDot();
   }
 
   document.querySelector('#pause').onclick = function () {
+    document.querySelector('.game_interface').classList.remove('slideUpAway');
     let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
     playing = false;
     currentDots.forEach(dot => {
