@@ -10,36 +10,26 @@
 </head>
 <body>
   <div class="game_interface" data-pane-type="intro">
-    <h3>Welcome to</h3>
+    <h2>Welcome to</h2>
     <h1 class="title">Dots Galore</h1>
     <p class="subtext"></p>
     <div class="slider">
-      <h4>Choose your dot-ficulty: </h4>
+      <h4>Choose your dot-ficulty: (<span class="actual-level">Normal</span>)</h4>
         <span class="range-slider value"><span class="level">Tick-tock, Tick-Dot</span></span>
       <input class="range-slider range" type="range" value="3" min="1" max="5" onchange="rangeSlider(event)">
     </div>
     <button class="start-game"><h2>Start!</h2></button>
+    <button class="exit"><i class="exit"></i></button>
   </div>
-  <!-- <div class="game_interface" data-pane-type="pause">
-    <h1 class="title"></h1>
-    <p class="subtext"></p>
-    <div class="slider_box"></div>
-    <button class="action"></button>
-  </div>
-  <div class="game_interface" data-pane-type="exit">
-    <h1 class="title"></h1>
-    <p class="subtext"></p>
-    <div class="slider_box"></div>
-    <button class="action"></button>
-  </div> -->
   <div class="game_play">
     <div class="begin-box">
       <div class="dot" id="dot_original" data-value="10" onclick="catchDot(event)"></div>
     </div>
-    <h1>The Dot Game!</h1>
-    <p>Score: <span id="score"></span></p>
-    <button id="start">Start-o!</button>
-    <button id="pause">Pause</button>
+    <div class="topbar">
+      <button class="night-mode"><i class="lightbulb"></i></button>
+      <h2 class="game-score">Score: <span id="score"></span></h2>
+      <button class="btn-control" id="pause">Pause</button>
+    </div>
   </div>
   <!-- <button>Start</button> -->
   <footer style="display: none;">

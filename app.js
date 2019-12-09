@@ -63,37 +63,61 @@ function randomizeDot(dotItem) {
 function rangeSlider(e) {
   let range = parseInt(document.querySelector(".range-slider.range").value);
   let level = document.querySelector(".level");
+  let translatedLevel = document.querySelector('.actual-level');
   let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
   // console.log(range);
   switch(range){
     case 5:
       level.innerHTML = "Pan-DOT-monium!!!";
+      translatedLevel.innerHTML = "Very Hard";
       delay = 100;
       currentDots.forEach(dot => {
+        if (dot.getAttribute('id') !== "dot_original") {
+          dot.remove();
+        }
         dot.style.animationDuration = '0.5s';
       });
       break;
     case 4:
       level.innerHTML = "Attending School of Dot";
+      translatedLevel.innerHTML = "Hard";
       delay = 300;
       currentDots.forEach(dot => {
+        if (dot.getAttribute('id') !== "dot_original") {
+          dot.remove();
+        }
         dot.style.animationDuration = '1s';
       });
       break;
     case 3:
       level.innerHTML = "Tick-tock, Tick-Dot";
+      translatedLevel.innerHTML = "Normal";
+      currentDots.forEach(dot => {
+        if (dot.getAttribute('id') !== "dot_original") {
+          dot.remove();
+        }
+        dot.style.animationDuration = '3s';
+      });
       delay = 1000;
       break;
     case 2:
       level.innerHTML = "Polka Dot";
+      translatedLevel.innerHTML = "Easy";
       currentDots.forEach(dot => {
+        if (dot.getAttribute('id') !== "dot_original") {
+          dot.remove();
+        }
         dot.style.animationDuration = '5s';
       });
       delay = 1500;
       break;
     case 1:
       level.innerHTML = "Dip-n-Dots";
+      translatedLevel.innerHTML = "Very Easy";
       currentDots.forEach(dot => {
+        if (dot.getAttribute('id') !== "dot_original") {
+          dot.remove();
+        }
         dot.style.animationDuration = '7s';
       });
       delay = 2000;
@@ -101,15 +125,18 @@ function rangeSlider(e) {
   }
 };
 
-// function startandResumeGame() {
-//   playing = true;
-//   let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
-//   currentDots.forEach(dot => {
-//     dot.style.animationPlayState = "running";
-//   });
-//   addDot();
-// }
+function nightMode(e) {
+  let screen1 = document.querySelector('.game_interface')[0];
+  let screen2 = document.querySelector('.game_play')[0];
 
+  if (screen1.classList.contains('dark') && screen2.classList.contains('dark')) {
+    screen1.classList.remove('dark');
+    screen2.classList.remove('dark');
+  } else {
+    screen1.classList.add('dark');
+    screen2.classList.add('dark');
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -125,11 +152,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelector('#pause').onclick = function () {
     document.querySelector('.game_interface').classList.remove('slideUpAway');
+    document.querySelector('.start-game').innerHTML = "<h2>Resume</h2>";
     let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
     playing = false;
     currentDots.forEach(dot => {
       dot.style.animationPlayState = "paused";
     });
+  }
+
+  document.querySelector('.night-mode').onclick = function() {
+    // console.log('i am the night');
+    let screen1 = document.querySelector('.game_interface');
+    let screen2 = document.querySelector('.game_play');
+    let btn = document.querySelector('.night-mode');
+
+    if (screen1.classList.contains('dark') && screen2.classList.contains('dark') && btn.classList.contains('dark')) {
+      screen1.classList.remove('dark');
+      screen2.classList.remove('dark');
+      btn.classList.remove('dark');
+    } else {
+      screen1.classList.add('dark');
+      screen2.classList.add('dark');
+      btn.classList.add('dark');
+    }
   }
 
 });
