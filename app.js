@@ -49,9 +49,14 @@ function randomizeDot(dotItem) {
   dotItem.style.height = dotSize + "px";
 
   //distance from leftside of screen
-  //WHY BROKEN?
-  let leftposition = Math.floor((dotSize * 100) / screen.width);
-  dotItem.style.left = Math.floor(Math.random() * 101) - leftposition + "%";
+  let dotWidthPercent = Math.floor((dotSize * 100) / window.innerWidth);
+  let randShiftPercent = Math.floor(Math.random() * 101) - dotWidthPercent;
+
+  if (randShiftPercent < 0) {
+    dotItem.style.left = Math.abs(randShiftPercent) + "%"; 
+  } else {
+    dotItem.style.left = randShiftPercent + "%";
+  }
 
   //point value is normalized, and then attributed points.
   dotItem.setAttribute("data-value", Math.ceil((100 - (dotSize - 20)) / 10)); // values from 1-10
