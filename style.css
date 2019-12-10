@@ -123,13 +123,13 @@ button {
 
 button.start-game {
   width: 20%;
-  margin: 10% 40%;
+  margin: 5% 40%;
 }
 
 @media screen and (max-width: 45rem) {
   button.start-game {
     width : 30%;
-    margin: 10% 35%;
+    margin: 7% 35%;
   }
 }
 
@@ -160,6 +160,10 @@ button:hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
   text-align: left;
   z-index: 100;
+}
+
+.front-score {
+  display: none;
 }
 
 @media screen and (max-width: 45rem) {
@@ -295,7 +299,6 @@ button.night-mode {
   }
 }
 
-
 button.night-mode:hover {
   background: #54645f;
 }
@@ -323,6 +326,16 @@ button.exit {
   position: absolute;
   right: 1rem;
   bottom: 1rem;
+  z-index: 1001;
+}
+
+button.restart {
+  background-color: #dfcbf4;
+  color: black;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1002;
 }
 
 @media screen and (max-width: 45rem) {
@@ -335,12 +348,17 @@ button.exit {
     height: 3rem;
     width: 3rem;
   }
+  
+  button.restart {
+    font-size: 1.2rem;
+    padding: 0.6rem;
+  }
 }
 
 /* ======slider css========== */
 
 .slider {
-  margin: 10% 0 0 0%;
+  margin: 3% 0 0 0%;
 }
 
 .slider {
@@ -404,7 +422,7 @@ button.exit {
   display: block;
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 45rem) {

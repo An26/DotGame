@@ -1,6 +1,6 @@
   let dotNum = 0;
   let playing = true;
-  let scoreBox = document.getElementById('score');
+  let scoreBox = document.getElementsByClassName('score_num');
   let score = 0;
   let delay = 1000;
 
@@ -9,7 +9,8 @@ function catchDot(e) {
   let pointVal = parseInt(e.target.getAttribute("data-value"));
   // console.log(pointVal);
     score += pointVal;
-    scoreBox.innerHTML = score;
+    scoreBox[0].innerHTML = score;
+    scoreBox[1].innerHTML = score;
     e.target.style.display = "none";
   }
 }
@@ -128,7 +129,6 @@ function rangeSlider(e) {
 function nightMode(e) {
   let screen1 = document.querySelector('.game_interface')[0];
   let screen2 = document.querySelector('.game_play')[0];
-
   if (screen1.classList.contains('dark') && screen2.classList.contains('dark')) {
     screen1.classList.remove('dark');
     screen2.classList.remove('dark');
@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
       dot.style.animationPlayState = "running";
     });
     addDot();
+    document.querySelector('.front-score').style.display = 'block';
   }
 
   document.querySelector('#pause').onclick = function () {
@@ -175,6 +176,21 @@ document.addEventListener("DOMContentLoaded", function() {
       screen2.classList.add('dark');
       btn.classList.add('dark');
     }
+  }
+
+  document.querySelector('.exit').onclick = function() {
+    let paused = document.getElementsByClassName('slideUpAway').length > 1;
+    if (paused) {
+      document.querySelector('.game_interface').innerHTML = "<h1 class='title'>Thanks for Visiting, Bye!</h1>";
+
+      document.querySelector('.game_interface').classList.add('slideUpAway');
+      //now clear that div with Good bye!
+    }
+    document.querySelector('.game_interface').innerHTML = "<h1 class='title'>Thanks for Visiting, Bye!</h1>";
+  }
+
+  document.querySelector('.restart').onclick = function() {
+    window.location.reload(true);
   }
 
 });
