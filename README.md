@@ -2,7 +2,7 @@
 
 Catch all the dots and rack up your points. JS, HTML, CSS only
  
-!(https://raw.githubusercontent.com/An26/DotGame/master/images/start%201.png)
+![alt text](https://raw.githubusercontent.com/An26/DotGame/master/images/start%201.png)
   
 !(https://raw.githubusercontent.com/An26/DotGame/master/images/play%201.png)
 
