@@ -143,6 +143,14 @@ function nightMode(e) {
   }
 }
 
+function pauseMode(e) {
+  let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
+  playing = false;
+  currentDots.forEach(dot => {
+    dot.style.animationPlayState = "paused";
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelector(".start-game").onclick = function () {
@@ -159,11 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelector('#pause').onclick = function () {
     document.querySelector('.game_interface').classList.remove('slideUpAway');
     document.querySelector('.start-game').innerHTML = "<h2>Resume</h2>";
-    let currentDots = Array.apply(null, document.getElementsByClassName("dot"));
-    playing = false;
-    currentDots.forEach(dot => {
-      dot.style.animationPlayState = "paused";
-    });
+    pauseMode();
   }
 
   document.querySelector('.night-mode').onclick = function() {
@@ -183,12 +187,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  document.querySelector('.exit').onclick = function() {
-    let paused = document.getElementsByClassName('slideUpAway').length > 1;
+  document.querySelector('#exit').onclick = function() {
+    let paused = document.getElementsByClassName('slideUpAway').length >= 1;
+    console.log(paused);
     if (paused) {
       document.querySelector('.game_interface').innerHTML = "<h1 class='title'>Thanks for Visiting, Bye!</h1>";
-
-      document.querySelector('.game_interface').classList.add('slideUpAway');
+      pauseMode();
+      document.querySelector('.game_interface').classList.remove('slideUpAway');
       //now clear that div with Good bye!
     }
     document.querySelector('.game_interface').innerHTML = "<h1 class='title'>Thanks for Visiting, Bye!</h1>";

@@ -92,6 +92,8 @@ p, div, button, ul, ol, li {
 
 @media screen and (max-width: 45rem) {
   .game_play {
+    width : calc(100vw - 1rem);
+    height : calc(100vh - 1rem);
     padding: 0.5rem;
   }
 }
@@ -317,7 +319,7 @@ i.exit {
   width: 5rem;
 }
 
-button.exit {
+button#exit {
   background-color: transparent;
   border-radius: 50%;
   padding: 0;
@@ -344,7 +346,7 @@ button.restart {
     width: 3rem;
   }
 
-  button.exit {
+  button#exit {
     height: 3rem;
     width: 3rem;
   }
